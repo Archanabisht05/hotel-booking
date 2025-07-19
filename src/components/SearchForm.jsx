@@ -72,7 +72,7 @@ const SearchForm = ({ initialParams = {} }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="space-y-6 text-white">
+    <form onSubmit={handleSearch} className="space-y-6 text-white bg-blue-300 p-4">
       <div>
         <input
           type="text"
@@ -181,3 +181,80 @@ const SearchForm = ({ initialParams = {} }) => {
 };
 
 export default SearchForm;
+
+
+
+// import React from "react";
+// import DestinationInput from "./DestinationInput";
+// import { useSearch } from "../context/SearchContext";
+// import { useNavigate } from "react-router-dom";
+
+// export default function SearchForm() {
+//   const { searchParams, setSearchParams } = useSearch();
+//   const navigate = useNavigate();
+
+//   const handleSearch = () => {
+//     navigate("/results", { replace: true });
+//   };
+
+//   return (
+//     <div className="bg-white shadow p-4">
+//       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
+//         <DestinationInput
+//           value={searchParams.destination}
+//           onChange={(val) =>
+//             setSearchParams((s) => ({ ...s, destination: val }))
+//           }
+//         />
+//         <input
+//           type="date"
+//           value={searchParams.checkIn}
+//           onChange={(e) =>
+//             setSearchParams((s) => ({ ...s, checkIn: e.target.value }))
+//           }
+//           className="border p-2 rounded"
+//         />
+//         <input
+//           type="date"
+//           value={searchParams.checkOut}
+//           onChange={(e) =>
+//             setSearchParams((s) => ({ ...s, checkOut: e.target.value }))
+//           }
+//           className="border p-2 rounded"
+//         />
+//         <input
+//           type="number"
+//           placeholder="Rooms"
+//           min={1}
+//           value={searchParams.occupancies[0].rooms}
+//           onChange={(e) =>
+//             setSearchParams((s) => ({
+//               ...s,
+//               occupancies: [{ ...s.occupancies[0], rooms: +e.target.value }],
+//             }))
+//           }
+//           className="border p-2 rounded"
+//         />
+//         <input
+//           type="number"
+//           placeholder="Adults"
+//           min={1}
+//           value={searchParams.occupancies[0].adults}
+//           onChange={(e) =>
+//             setSearchParams((s) => ({
+//               ...s,
+//               occupancies: [{ ...s.occupancies[0], adults: +e.target.value }],
+//             }))
+//           }
+//           className="border p-2 rounded"
+//         />
+//         <button
+//           onClick={handleSearch}
+//           className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+//         >
+//           Search
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }

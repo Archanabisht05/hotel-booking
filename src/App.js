@@ -13,3 +13,23 @@ function App() {
 }
 
 export default App;
+
+
+// import React from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import LandingPage from "./pages/LandingPage";
+// import ResultPage from "./pages/ResultPage";
+// import { SearchProvider } from "./context/SearchContext";
+
+// export default function App() {
+//   return (
+//     <SearchProvider>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route path="/" element={<LandingPage />} />
+//           <Route path="/results" element={<ResultPage />} />
+//         </Routes>
+//       </BrowserRouter>
+//     </SearchProvider>
+//   );
+// }
