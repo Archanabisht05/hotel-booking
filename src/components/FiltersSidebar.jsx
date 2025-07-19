@@ -4,38 +4,45 @@ import { useAppContext } from "../context/AppContext";
 const FiltersSidebar = () => {
   const { state, dispatch } = useAppContext();
 
-  const handleChange = (e) => {
-    dispatch({
-      type: "SET_FILTERS",
-      payload: { [e.target.name]: e.target.value },
-    });
+  const handleStarRatingChange = (e) => {
+    const value = parseInt(e.target.value);
+    const checked = e.target.checked;
+    let updated = [...state.filters.starRating];
+    if (checked) {
+      updated.push(value);
+    } else {
+      updated = updated.filter((r) => r !== value);
+    }
+    dispatch({ type: "SET_FILTERS", payload: { starRating: updated } });
   };
 
   return (
     <div className="border p-4 rounded space-y-4">
       <h3 className="font-bold">Filters</h3>
-      <input
-        type="range"
-        name="priceRange"
-        min="0"
-        max="100000"
-        onChange={handleChange}
-      />
-      <select
-        name="starRating"
-        onChange={handleChange}
-        className="w-full border p-2"
-      >
-        <option value="">Star Rating</option>
+
+      <div className="space-y-1">
         {[1, 2, 3, 4, 5].map((v) => (
-          <option key={v} value={v}>
-            {v} Star
-          </option>
+          <label key={v} className="flex items-center space-x-2 text-sm">
+            <input
+              type="checkbox"
+              name="starRating"
+              value={v}
+              checked={state.filters.starRating.includes(v)}
+              onChange={handleStarRatingChange}
+            />
+            <span>{v} Star</span>
+          </label>
         ))}
-      </select>
+      </div>
+
       <select
         name="boardTypes"
-        onChange={handleChange}
+        onChange={(e) =>
+          dispatch({
+            type: "SET_FILTERS",
+            payload: { boardTypes: [e.target.value] },
+          })
+        }
         className="w-full border p-2"
       >
         <option value="">Board Type</option>
