@@ -17,16 +17,18 @@ const ResultsPage = () => {
 
   useEffect(() => {
     if (searchParams) {
-      console.log(state);
       const payloadData = {
         ...searchParams,
-        reviews: [
+        reviewsFilter: [
           {
             minRate: state.filters.starRating[0],
             maxRate: state.filters.starRating[1],
+            minReviewCount: 1,
+            type: "TRIPADVISOR",
           },
         ],
       };
+
       dispatch({ type: "FETCH_HOTELS_START" });
       fetchHotels(payloadData, destinationId)
         .then((data) => {
