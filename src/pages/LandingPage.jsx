@@ -6,12 +6,11 @@ const LandingPage = () => {
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center px-4"
       style={{
-        backgroundImage:
-          "url('https://source.unsplash.com/1600x900/?hotel,resort,travel')",
+        backgroundImage: "url('/background.jpg')",
       }}
     >
-      <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 shadow-lg w-full max-w-3xl">
-        <h1 className="text-4xl font-extrabold text-center text-white drop-shadow mb-6">
+      <div className="bg-white/40 backdrop-blur-lg rounded-2xl p-8 shadow-xl w-full max-w-3xl">
+        <h1 className="text-4xl font-extrabold text-center text-gray-900 drop-shadow mb-6">
           Find the Best Hotels 🏨
         </h1>
         <SearchForm />

@@ -54,14 +54,8 @@ const SearchForm = ({ initialParams = {} }) => {
       ...adultAges.map((age) => ({ type: "AD", age: Number(age) })),
       ...childAges.map((age) => ({ type: "CH", age: Number(age) })),
     ];
-
     const occupancies = [{ rooms, adults, children, paxes }];
-
-    const payload = {
-      stay: { checkIn, checkOut },
-      occupancies,
-      destination,
-    };
+    const payload = { stay: { checkIn, checkOut }, occupancies, destination };
 
     dispatch({ type: "SET_SEARCH_PARAMS", payload });
     dispatch({
@@ -72,12 +66,12 @@ const SearchForm = ({ initialParams = {} }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="space-y-6 text-white">
+    <form onSubmit={handleSearch} className="space-y-6 text-gray-800">
       <div>
         <input
           type="text"
           placeholder="Destination"
-          className="w-full bg-white/30 placeholder-white text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="w-full bg-white/70 placeholder-gray-600 text-gray-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
           list="destinations"
@@ -93,14 +87,14 @@ const SearchForm = ({ initialParams = {} }) => {
       <div className="flex flex-col md:flex-row gap-4">
         <input
           type="date"
-          className="flex-1 bg-white/30 text-white p-3 rounded-md"
+          className="flex-1 bg-white/70 text-gray-900 p-3 rounded-md"
           value={checkIn}
           onChange={(e) => setCheckIn(e.target.value)}
           required
         />
         <input
           type="date"
-          className="flex-1 bg-white/30 text-white p-3 rounded-md"
+          className="flex-1 bg-white/70 text-gray-900 p-3 rounded-md"
           value={checkOut}
           onChange={(e) => setCheckOut(e.target.value)}
           required
@@ -111,7 +105,7 @@ const SearchForm = ({ initialParams = {} }) => {
         <input
           type="number"
           min="1"
-          className="flex-1 bg-white/30 text-white p-3 rounded-md"
+          className="flex-1 bg-white/70 text-gray-900 p-3 rounded-md"
           placeholder="Rooms"
           value={rooms}
           onChange={(e) => setRooms(Number(e.target.value))}
@@ -119,7 +113,7 @@ const SearchForm = ({ initialParams = {} }) => {
         <input
           type="number"
           min="1"
-          className="flex-1 bg-white/30 text-white p-3 rounded-md"
+          className="flex-1 bg-white/70 text-gray-900 p-3 rounded-md"
           placeholder="Adults"
           value={adults}
           onChange={(e) => setAdults(Number(e.target.value))}
@@ -127,7 +121,7 @@ const SearchForm = ({ initialParams = {} }) => {
         <input
           type="number"
           min="0"
-          className="flex-1 bg-white/30 text-white p-3 rounded-md"
+          className="flex-1 bg-white/70 text-gray-900 p-3 rounded-md"
           placeholder="Children"
           value={children}
           onChange={(e) => setChildren(Number(e.target.value))}
@@ -140,7 +134,7 @@ const SearchForm = ({ initialParams = {} }) => {
           type="number"
           min="18"
           max="120"
-          className="w-full bg-white/30 text-white p-3 rounded-md"
+          className="w-full bg-white/70 text-gray-900 p-3 rounded-md"
           placeholder={`Adult ${index + 1} Age`}
           value={age}
           onChange={(e) => {
@@ -157,7 +151,7 @@ const SearchForm = ({ initialParams = {} }) => {
           type="number"
           min="0"
           max="17"
-          className="w-full bg-white/30 text-white p-3 rounded-md"
+          className="w-full bg-white/70 text-gray-900 p-3 rounded-md"
           placeholder={`Child ${index + 1} Age`}
           value={age}
           onChange={(e) => {
